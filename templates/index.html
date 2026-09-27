@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital SQL Generator</title>
+</head>
+<body>
+
+<h1>Hospital Database Query System</h1>
+
+<form method="POST">
+    <input type="text" name="question" placeholder="Enter your question">
+    <button type="submit">Generate SQL</button>
+</form>
+
+{% if sql %}
+<h3>Generated SQL</h3>
+<p>{{ sql }}</p>
+{% endif %}
+
+{% if results %}
+<h3>Results</h3>
+
+<table border="1">
+{% for row in results %}
+<tr>
+{% for value in row %}
+<td>{{ value }}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+
+{% endif %}
+
+</body>
+</html>
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
